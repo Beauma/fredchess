@@ -1,10 +1,10 @@
 # Tutorials used
-`https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project`
+`https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project` as well as the follow up `https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project`
 
 Fetch help:
 `https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch`
 
-
+Using the library `http://www.fen-to-image.com/manual` to render the board and the lichess api at `https://lichess.org/api`
 
 
 ### /gameState
