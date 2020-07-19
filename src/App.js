@@ -30,11 +30,16 @@ function App() {
 
   
   useEffect(() => {
+    var beauHeader = {'Authorization': 'Bearer G7zp9tVJrGSo6I1z'}
+    var fredHeader = {'Authorization': 'Bearer sqpsslupAFyPkpv1'}
+    var header = fredHeader
+    if (process.env.NODE_ENV == 'development') {
+      console.log("Setting header to Beau Header")
+      header = beauHeader
+    }
     const fetched = fetch('https://lichess.org/api/account/playing', {
       method: 'GET',
-      headers: {
-        'Authorization': 'Bearer G7zp9tVJrGSo6I1z',
-      }
+      headers: header
     });
     fetched.then(response => 
       response.json().then(data => {
