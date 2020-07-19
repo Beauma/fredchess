@@ -9,7 +9,7 @@ import { Welcome } from './components/Welcome';
 
 function App() {
 
-  const [movies, setMovies] = useState([]);
+  const [turn, setTurn] = useState([]);
 
   const [boards, setBoards] = useState([]);
 
@@ -39,10 +39,17 @@ function App() {
     fetched.then(response => 
       response.json().then(data => {
         console.log('app.js fetch')
-        console.log(data['nowPlaying'][0])
+        console.log(data['nowPlaying'].length)
         setBoardData(data['nowPlaying'])
-        setBoards(data['nowPlaying'][0]['fen'])
-        setGame(data['nowPlaying'][0]['gameId'])
+        if (data['nowPlaying'].length > 0) {
+          setBoards(data['nowPlaying'][0]['fen'])
+          setTurn(data['nowPlaying'][0]['isMyTurn'])
+          setGame(data['nowPlaying'][0]['gameId'])
+        } else {
+          setBoards(false)
+          setTurn(false)
+          setGame(false)
+        }
       })
     );
   }, []);
@@ -50,9 +57,9 @@ function App() {
 
   return (
     <div className="App">
-      <Welcome name="Fred" />
+      <Welcome name="Fred" turn={turn}/>
       <Boards boards={boards} />
-      <Entryform game={game}/>
+      <Entryform game={game} turn={turn}/>
 
 
     </div>

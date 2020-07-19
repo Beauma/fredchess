@@ -5,6 +5,9 @@ class Entryform extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
+
+        console.log("in the Entryform component")
+        console.log(props)
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,15 +42,21 @@ class Entryform extends Component {
 
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    <h3>Move: </h3>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        )
+        if (this.props.turn) {
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        <h3>Move: </h3>
+                        <input type="text" value={this.state.value} onChange={this.handleChange} autoFocus={true}/>
+                    </label>
+                    <input type="submit" value="Submit Move" />
+                </form>
+            )
+        } else {
+            return (
+                <div><h3>It is not your turn</h3></div>
+            )
+        }
     }
 }
 
