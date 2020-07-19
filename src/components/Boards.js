@@ -8,10 +8,17 @@ export const Boards = ({ boards }) => {
     //console.log(array);
     var url =  'http://www.fen-to-image.com/image/48/double/coords/' + boards; 
     //console.log(url)
-
-    return (
-        <div>
-            <img src={url} />
-        </div>
-    )
+    if (boards != false) {
+        return (
+            <div>
+                <img src={url} />
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <h1>No active games</h1>
+            </div>
+        )
+    }
 }

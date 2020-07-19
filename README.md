@@ -1,3 +1,9 @@
+# To Update:
+
+### Parse spaces and capital from move
+
+Capitals or spaces will ruin the move. I should parse them out just in case. 
+
 # Tutorials used
 `https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project` as well as the follow up `https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project`
 
